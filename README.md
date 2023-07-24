@@ -1,5 +1,5 @@
 # QGPT
-
+We leverage the opensource llama2 to build QGPT
 ## Download pre-trained weights
 
 ⚠️ **7/18: We're aware of people encountering a number of download issues today. Anyone still encountering issues should remove all local files, re-clone the repository, and [request a new download link](https://ai.meta.com/resources/models-and-libraries/llama-downloads/). It's critical to do all of these in case you have local corrupt files. When you receive the email, copy *only* the link text - it should begin with https://download.llamameta.net and not with https://l.facebook.com, which will give errors.**
