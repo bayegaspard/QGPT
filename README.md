@@ -2,7 +2,7 @@
 We leverage the open-source llama2 to build QGPT
 ## Download pre-trained weights
 
-**We downloaded the pre-trained models via this form [request a new download link](https://ai.meta.com/resources/models-and-libraries/llama-downloads/). **
+We downloaded the pre-trained models via this form [request a new download link](https://ai.meta.com/resources/models-and-libraries/llama-downloads/). 
 
 
 To download the model weights and tokenizer, please visit the [Meta AI website](https://ai.meta.com/resources/models-and-libraries/llama-downloads/).
