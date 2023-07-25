@@ -1,17 +1,16 @@
 # QGPT
-We leverage the opensource llama2 to build QGPT
+We leverage the open-source llama2 to build QGPT
 ## Download pre-trained weights
 
-⚠️ **7/18: We're aware of people encountering a number of download issues today. Anyone still encountering issues should remove all local files, re-clone the repository, and [request a new download link](https://ai.meta.com/resources/models-and-libraries/llama-downloads/). It's critical to do all of these in case you have local corrupt files. When you receive the email, copy *only* the link text - it should begin with https://download.llamameta.net and not with https://l.facebook.com, which will give errors.**
+**We downloaded the pre-trained models via this form [request a new download link](https://ai.meta.com/resources/models-and-libraries/llama-downloads/). **
 
 
-
-In order to download the model weights and tokenizer, please visit the [Meta AI website](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) and accept our License.
+To download the model weights and tokenizer, please visit the [Meta AI website](https://ai.meta.com/resources/models-and-libraries/llama-downloads/).
 
 
 ### Access on Hugging Face
 
-We are also providing downloads on [Hugging Face](https://huggingface.co/meta-llama). You must first request a download from the Meta AI website using the same email address as your Hugging Face account. After doing so, you can request access to any of the models on Hugging Face and within 1-2 days your account will be granted access to all versions.
+This is an alternative link to download the model weights [Hugging Face](https://huggingface.co/meta-llama).
 
 ## Setup
 
@@ -34,23 +33,13 @@ All models support sequence length up to 4096 tokens, but we pre-allocate the ca
 
 ### Pretrained Models
 
-These models are not finetuned for chat or Q&A. They should be prompted so that the expected answer is the natural continuation of the prompt.
+The fine-tuned models are not super good at code, but we finetuned it to support code generation efficiently.
 
-See `example_text_completion.py` for some examples. To illustrate, see command below to run it with the llama-2-7b model (`nproc_per_node` needs to be set to the `MP` value):
-
-```
-torchrun --nproc_per_node 1 example_text_completion.py \
-    --ckpt_dir llama-2-7b/ \
-    --tokenizer_path tokenizer.model \
-    --max_seq_len 128 --max_batch_size 4
-```
 
 ### Fine-tuned Chat Models
 
-The fine-tuned models were trained for dialogue applications. To get the expected features and performance for them, a specific formatting defined in [`chat_completion`](https://github.com/facebookresearch/llama/blob/main/llama/generation.py#L212)
-needs to be followed, including the `INST` and `<<SYS>>` tags, `BOS` and `EOS` tokens, and the whitespaces and breaklines in between (we recommend calling `strip()` on inputs to avoid double-spaces).
-
-You can also deploy additional classifiers for filtering out inputs and outputs that are deemed unsafe. See the llama-recipes repo for [an example](https://github.com/facebookresearch/llama-recipes/blob/main/inference/inference.py) of how to add a safety checker to the inputs and outputs of your inference code.
+The fine-tuned models were trained for dialogue applications. To get the expected features and performance for them, specific formatting defined in [`chat_completion`](https://github.com/facebookresearch/llama/blob/main/llama/generation.py#L212)
+needs to be followed, including the `INST` and `<<SYS>>` tags, `BOS` and `EOS` tokens, and the whitespaces and break lines in between (we recommend calling `strip()` on inputs to avoid double-spaces).
 
 Examples using llama-2-7b-chat:
 
